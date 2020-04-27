@@ -1,0 +1,80 @@
+<div class="container" style="margin-top: 120px;">
+  <div class="jumbotron offset-3 col-7">
+    <h1>Add New Product</h1>
+  <form class="form-horizontal" #f1="ngForm" method="get" (ngSubmit)="product()">
+    <b>Product ID :</b><br>
+    <input type="text" name="PID" class="form-control col-sm-8" [(ngModel)]="PID" #PID1="ngModel" required minlength="3">
+    <div *ngIf="f1.submitted && PID1.invalid">
+      <div *ngIf="PID1.errors.required" class="text-danger"> *Product ID is Required </div>
+    </div>
+    <div *ngIf="PID1.invalid">
+      <div *ngIf="PID1.errors.minlength" class="text-danger">*Product ID should have at least 3 characters</div>
+    </div>
+    <br>
+    <b>Product Name :</b><br>
+    <input type="text" name="Pname" class="form-control col-sm-8" [(ngModel)]="Pname" #Pname1="ngModel" required>
+    <div *ngIf="f1.submitted && Pname1.invalid">
+      <div *ngIf="Pname1.errors.required" class="text-danger"> *Product Name is Required </div>
+    </div>
+    <br>
+    <b>Product Cost :</b><br>
+    <input type="text" name="Pcost" class="form-control col-sm-8" [(ngModel)]="Pcost" #Pcost1="ngModel" required>
+    <div *ngIf="f1.submitted && Pcost1.invalid">
+      <div *ngIf="Pcost1.errors.required" class="text-danger"> *Product Cost is Required </div>
+    </div>
+    <br>
+    <b>Product Online ? :</b> &nbsp;&nbsp;
+    <div class="custom-control custom-radio custom-control-inline">
+    <input type="radio" id="yes" class="custom-control-input" value="Yes" name="isonline"
+                                        [(ngModel)]="Ponline" #Ponline1="ngModel" required>
+    <label for="yes" class="custom-control-label">Yes</label></div>
+    <div class="custom-control custom-radio custom-control-inline">
+    <input type="radio" id="no" class="custom-control-input" value="No" name="isonline"
+                                        [(ngModel)]="Ponline" #Ponline1="ngModel" required>
+    <label for="no" class="custom-control-label">No</label></div>
+    <div *ngIf="f1.submitted && Ponline1.invalid">
+      <div *ngIf="Ponline1.errors.required" class="text-danger"> *Check on any one </div>
+    </div>
+  <br>
+  <br>
+  <b><label for="category">Product Category :</label></b> &nbsp;&nbsp;
+    <select id="category" class="custom-select custom-select-sm mb-2">
+      <option value="grocery">Groceries</option>
+      <option value="Mobile">Mobile Phones</option>
+      <option value="electronics">Electronics</option>
+      <option value="clothes">Clothes</option>
+    </select>
+    <br>
+    <br>
+    <b>Avalable in Store :</b>&nbsp;&nbsp;
+    <input type="checkbox" id="mart1" name="mart" value="Big Bazar" [(ngModel)]="Pmart" #Pmart1="ngModel">
+    <label for="mart1" class="mr-2 form-check-label ml-2">{{big}}</label>
+    <input type="checkbox" id="mart2" name="mart1" value="D Mart" [(ngModel)]="Dmart" #Dmart1="ngModel">
+    <label for="mart2"  class="mr-2 form-check-label ml-2">{{d_M}}</label>
+    <input type="checkbox" id="mart3" name="mart2" value="Reliance" [(ngModel)]="Rmart" #Rmart1="ngModel">
+    <label for="mart3"  class="mr-2 form-check-label ml-2"> {{ril}}</label>
+    <input type="checkbox" id="mart4" name="mart4" value="Mega Mart" [(ngModel)]="Mmart" #Mmart1="ngModel">
+    <label for="mart4"  class="mr-2 form-check-label ml-2">{{mega}}</label><br>
+    <div *ngIf="f1.submitted && Pmart1.invalid">
+      <div *ngIf="Pmart1.errors.required" class="text-danger"> *Where is it available? </div>
+    </div>
+    <br>
+    <br>
+    <input type="submit" class="btn btn-success float-left" name="Add Product ">
+  </form>
+  <br>
+  <div *ngIf="f1.submitted"><h3>Product Info:</h3>
+    <br>
+    <div *ngIf="PID1.valid" class="text-primary"> <b>Product ID : {{PID}}</b></div>
+    <div *ngIf="Pname1.valid" class="text-primary"> <b>Product Name : {{Pname}}</b></div>
+    <div *ngIf="Pcost1.valid" class="text-primary"> <b>Product Cost : {{Pcost}}</b></div>
+    <div *ngIf="Ponline1.valid" class="text-primary"> <b>Is Product Online ? : {{Ponline}}</b></div>
+    <div class="text-primary"><b>Stores In which Product is Available :</b></div>
+    </div>
+        <div class="text-primary"> <p id="big"> </p></div>
+        <div class="text-primary"><p id="d"> </p></div>
+        <div class="text-primary"> <p id="r"> </p></div>
+        <div class="text-primary"> <p id="m"> </p></div>
+
+</div>
+</div>

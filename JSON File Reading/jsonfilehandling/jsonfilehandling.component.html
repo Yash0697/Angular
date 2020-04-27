@@ -1,0 +1,91 @@
+
+<!--Services-->
+
+<h1 class="text-white text-center bg-dark col-sm-4 offset-4 shadow-lg">Get Data from JSON</h1>
+<div class="container">
+<div class="jumbotron">
+<div class="row">
+<div class="col-md">
+    <h1> Get Total Data</h1>
+<form class="form-horizontal" #f1="ngForm" method="get" (ngSubmit)="jsonFileServices(1)">
+  <div class="form-group col-sm-8">
+     <label for="filename">File Name</label>
+    <input id="filename" type="text" class="form-control" [(ngModel)]="Fname" name="Fname" placeholder="Enter name">
+  </div>
+  <input type="submit" class="btn btn-primary offset-6" value="submit">
+  <br>
+</form>
+</div>
+
+
+
+<div class="col-md">
+    <h1> Get Record </h1>
+<form class="form-horizontal" #f2="ngForm" method="get" (ngSubmit)="jsonFileServices(2)">
+  <div class="form-group col-sm-8">
+     <label for="filename">File Name</label>
+    <input id="filename" type="text" class="form-control" [(ngModel)]="Fname" name="Fname" placeholder="Enter File name">
+  </div>
+  <div class="form-group col-sm-8">
+     <label for="fileparamval">Parameter Value</label>
+    <input id="fileparamval" type="text" class="form-control" [(ngModel)]="paramValue" name="paramValue" placeholder="Enter ID">
+  </div>
+  <input type="submit" class="btn btn-primary offset-6" value="submit">
+  <br>
+</form>
+</div>
+</div>
+
+
+
+<div *ngIf="f1.submitted">
+<div class="container card jumbotron">
+  <table class="table table-hover table-dark table-bordered table-striped shadow-lg">
+    <thead class="bg-white text-dark">
+      <tr>
+        <th>Serial</th>
+      <th>Employee Id </th>
+      <th>Employee Name</th>
+      <th>Employee Salary</th>
+      <th>Employee Department</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of empList; index as i;">
+      <td>{{i+1}}</td>
+        <td>{{emp.emp_ID}}</td>
+        <td>{{emp.emp_Name}}</td>
+        <td>{{emp.emp_Sal}}</td>
+        <td>{{emp.emp_Dept}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<div *ngIf="f2.submitted">
+<div class="container card jumbotron">
+  <table class="table table-hover table-dark table-bordered table-striped shadow-lg">
+    <thead class="bg-white text-dark">
+      <tr>
+      <th>Employee Id </th>
+      <th>Employee Name</th>
+      <th>Employee Salary</th>
+      <th>Employee Department</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{emp.emp_ID}}</td>
+        <td>{{emp.emp_Name}}</td>
+        <td>{{emp.emp_Sal}}</td>
+        <td>{{emp.emp_Dept}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>

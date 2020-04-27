@@ -1,0 +1,42 @@
+<p>movieapp works!</p>
+<div class="container card jumbotron">
+  <table class="table table-hover table-dark table-bordered table-striped shadow-lg">
+    <thead class="bg-white text-dark">
+      <tr>
+        <th>Serial</th>
+      <th>Movie Title </th>
+      <th class="my-2">Release Year</th>
+      <th>Genre
+       <select class="custom-select">
+            <option selected>Select Movie Genre</option>
+            <option value="1" [routerLink]="['/moviesAll/', 'Action']">Action</option>
+            <option value="2" [routerLink]="['/moviesAll/', 'Biography']">Biography</option>
+            <option value="3" [routerLink]="['/moviesAll/', 'Comedy']">Comedy</option>
+            <option value="4" [routerLink]="['/moviesAll/', 'Crime']">Crime</option>
+            <option value="5" [routerLink]="['/moviesAll/', 'Drama']">Drama</option>
+            <option value="6" [routerLink]="['/moviesAll/', 'Romance']">Romance</option>
+        <!-- <option *ngFor="let genre of genreList; index as i;" value="{{i+1}}" [routerLink]="['/moviesAll/', genre]">{{genre}}</option>
+        -->
+        </select>
+      </th>
+      <th>Actors</th>
+    </tr>
+    </thead>
+    <tbody>
+        <!-- [routerLink]="['/empListAll/', emp.emp_ID] -->
+        <tr *ngFor="let movie of movieList; index as i;" [routerLink]="['/moviesAll/', movie.genre]">
+      <td>{{i+1}}</td>
+        <td>{{movie.title}}</td>
+        <td>{{movie.year}}</td>
+        <td>{{movie.genre}}</td>
+
+        <td> <div *ngFor="let actor of movie.actors;">{{actor}},</div> </td>
+      </tr>
+    </tbody>
+  </table>
+
+  
+
+</div>
+
+<router-outlet></router-outlet>

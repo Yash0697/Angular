@@ -1,1 +1,1 @@
-Couldn't organize angular stuff so only results are uploaded
+ app.module.ts and app.component.ts files are common for all the labs

@@ -1,0 +1,28 @@
+<div class="container ml-4 mr-4 offset-4" style="margin-top: 120px;">
+  <div class="jumbotron  offset-4">
+  <h1>Fill Your Details</h1>
+<form #f="ngForm" method="get" (ngSubmit)="salary()">
+  <div class="form-group">
+  EmpId
+    <input type="text" class="form-control mr-6" [(ngModel)]="UID" name="UID" placeholder="Enter Id">
+    Name
+      <input type="text" class="form-control" [(ngModel)]="name" name="name" placeholder="Enter name">
+      Basic
+        <input type="text" class="form-control" [(ngModel)]="Basic" name="Basic" placeholder="Enter Basic Pay">
+        DA
+          <input type="text" class="form-control" [(ngModel)]="DA" name="DA" placeholder="Enter DA">
+          HRA
+            <input type="text" class="form-control" [(ngModel)]="HRA" name="HRA" placeholder="Enter HRA">
+            Tax
+              <input type="text" class="form-control" [(ngModel)]="Tax" name="Tax" placeholder="Enter Tax">
+  </div>
+  <input type="submit" class="btn btn-primary z-depth-2" value="submit">
+  <br>
+</form>
+<div *ngIf="f.submitted">
+<p class="text-info">Hi {{name}}, Your Gross Salary is {{result}}</p></div>
+</div>
+</div>
+<hr>
+
+<br>
